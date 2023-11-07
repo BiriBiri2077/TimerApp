@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import { StatusBar } from 'expo-status-bar';
 import { TouchableOpacity,StyleSheet, Text, View, ScrollView, Image, ImageBackground } from 'react-native';
 import { Picker } from '@react-native-picker/picker';
+import Contador from './contador';
 
 export default function App() {
 
@@ -65,8 +66,9 @@ export default function App() {
           <TouchableOpacity onPress={()=>setState('iniciar')} style={styles.btnIniciar}><Text style={{textAlign:'center', paddingTop:30, color:'white', fontSize:20}}>iniciar</Text></TouchableOpacity>
     </View>
   );
-}else if(estado == 'iniciar'){
+}else if(estado == 'iniciar'){ //se o estado for igual a 'iniciar' esta ação será atualizada
       return(
+        <Contador minutos={min} segundos={sec}></Contador> //o Contador buscara os segundos e minutos e os mostrará na tela
       );
 };
 }
