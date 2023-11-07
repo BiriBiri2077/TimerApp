@@ -5,6 +5,23 @@ import { Picker } from '@react-native-picker/picker';
 
 export default function App() {
 
+  console.disableYellowBox = true;
+  const [alarm, setAlarm] = useState([
+    {
+      id:1,
+      selecionado: true,
+      som:'alarme1',
+      file:'alarm1.mp3'
+    },
+    {
+      id:2,
+      selecionado: true,
+      som:'alarme2',
+      file:'alarm2.mp3'
+    },
+  ])
+
+  const [state, setState] =useState('selecionar');
   const [sec,setSec] = useState(0);//constante do estado dos segundos
   const [min,setMin] = useState(0);//constantes dos estado dos minutos, ao selecionar um picker, ele buscará essas constantes
 
@@ -14,10 +31,11 @@ export default function App() {
       numeros.push(i);
  }
 
+ if(estado == 'setState'){
   return (
     <View style={styles.container}>
       <Text style={{color:'white', fontSize:30}}>texto</Text>
-      <View style={{flexDirection:'row'}}>
+    <View style={{flexDirection:'row'}}>
         <Text style={{color:'white'}}>min:</Text>
       <Picker //o picker será utilizado como um armazém para os valores de minutos e segundos, um "selecionador"
         selectedValue={min}
@@ -43,9 +61,14 @@ export default function App() {
             })
           }
       </Picker>
-      </View>
+    </View>
+          <TouchableOpacity onPress={()=>setState('iniciar')} style={styles.btnIniciar}><Text style={{textAlign:'center', paddingTop:30, color:'white', fontSize:20}}>iniciar</Text></TouchableOpacity>
     </View>
   );
+}else if(estado == 'iniciar'){
+      return(
+      );
+};
 }
 
 const styles = StyleSheet.create({
@@ -56,7 +79,13 @@ const styles = StyleSheet.create({
     justifyContent:'center',
   },
 
-  botao: {
-    fontSize:20
+  btnIniciar: {
+    backgroundColor:'orange',
+    width:100,
+    height:100,
+    borderRadius:50,
+    marginTop:30,
+    borderColor:'white',
+    borderWidth:2,
   },
 });
