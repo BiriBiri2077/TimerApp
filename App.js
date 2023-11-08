@@ -24,7 +24,7 @@ export default function App() {
 
   const [state, setState] =useState('selecionar');
   const [sec,setSec] = useState(0);//constante do estado dos segundos
-  const [min,setMin] = useState(0);//constantes dos estado dos minutos, ao selecionar um picker, ele buscará essas constantes
+  const [min,setMin] = useState(1);//constantes dos estado dos minutos, ao selecionar um picker, ele buscará essas constantes
 
 
  var numeros = []; //variável dos números relacionados para minutos ou segundos
@@ -68,7 +68,7 @@ export default function App() {
   );
 }else if(estado == 'iniciar'){ //se o estado for igual a 'iniciar' esta ação será atualizada
       return(
-        <Contador minutos={min} segundos={sec}></Contador> //o Contador buscara os segundos e minutos e os mostrará na tela
+        <Contador setSec={setState} minutos={min} segundos={sec}></Contador> //o Contador buscara os segundos e minutos e os mostrará na tela
       );
 };
 }

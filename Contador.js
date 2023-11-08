@@ -5,7 +5,15 @@ import { TouchableOpacity,StyleSheet, Text, View, ScrollView, Image, ImageBackgr
 export default function Contador(props) {
 
     return(
-        <View><Text>{props.segundos}</Text></View>
+        <View style={{backgroundColor:'orange'}}>
+            <View style={{flexDirection:'row'}}>
+                <Text style={styles.textContador}>{props.min :}</Text>
+                <Text style={styles.textContador}>{props.sec} :</Text>
+            </View>
+
+            <TouchableOpacity onPress={()=>setState('iniciar')} style={styles.btnIniciar}><Text style={{textAlign:'center', paddingTop:30, color:'white', fontSize:20}}>iniciar</Text></TouchableOpacity>
+   
+        </View>
     )
 
 }
@@ -17,6 +25,19 @@ const styles = StyleSheet.create({
         alignItems:'center',
         justifyContent:'center',
     },
+    textContador: {
+        color:'white',
+        fontSize:40
+    },
+    btnIniciar: {
+        backgroundColor:'orange',
+        width:100,
+        height:100,
+        borderRadius:50,
+        marginTop:30,
+        borderColor:'white',
+        borderWidth:2,
+      },
 
 })
 
